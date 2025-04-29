@@ -1,6 +1,6 @@
 # 🧠  oda-dialog-code-visual-helper README
 
-This VS Code extension streamlines the development of Oracle Digital Assistant (ODA) skills built in YAML.
+This VS Code extension streamlines the development of Oracle Digital Assistant (ODA) skills built using YAML.
 
 In YAML code the flow of the conversation is basically an ordered list of state transitions.
 Tracing these transitions manually can become tedious — especially in large files.
@@ -10,7 +10,7 @@ Tracing these transitions manually can become tedious — especially in large fi
 
 ![Follow transition](images/follow-transition.png)
 
-- Tracks visited states and shows them as a breadcrumb trail in the status bar and lets you quickly go back to previous states
+- Tracks visited states and shows them as a breadcrumb trail in the status bar and lets you quickly backtrack to previous states
 
 ![Backtrack](images/breadcrumbs-statusbar.png)
 
