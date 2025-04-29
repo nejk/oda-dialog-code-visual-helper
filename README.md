@@ -7,11 +7,17 @@ Tracing these transitions manually can become tedious — especially in large fi
 
 ## ✨ What this extension does
 - Adds clickable CodeLens links next to each transition and automatically scrolls to the target state when clicked
+
 ![Follow transition](images/follow-transition.png)
+
 - Tracks visited states and shows them as a breadcrumb trail in the status bar and lets you quickly go back to previous states
+
 ![Backtrack](images/breadcrumbs-statusbar.png)
+
 - Highlights TODO and FIXME in the code
+
 ![Highlighting](images/highlighting.png)
+
 
 ## Getting Started
 
