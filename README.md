@@ -7,11 +7,11 @@ Tracing these transitions manually can become tedious — especially in large fi
 
 ## ✨ What this extension does
 - Adds clickable CodeLens links next to each transition and automatically scrolls to the target state when clicked
-\!\[Follow transition\]\(images/follow-transition.png\)
+![Follow transition](images/follow-transition.png)
 - Tracks visited states and shows them as a breadcrumb trail in the status bar and lets you quickly go back to previous states
-\!\[Backtrack\]\(images/breadcrumbs-statusbar.png\)
+![Backtrack](images/breadcrumbs-statusbar.png)
 - Highlights TODO and FIXME in the code
-\!\[feature X\]\(images/highlighting.png\)
+![Highlighting](images/highlighting.png)
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ You can find the YAML code in the skill conversation designer/dialog code.
 You can edit that code inline in the ODA platform, but it is very slow (it is saved to the cloud after every change) and error phrone (there is no source control).
 Therefore it is considered best practise to edit the code in a code editor like VSCode.
 Install the extension.
-Run command `Follow transitions`
+Run command (cntrl + shift + p) `Follow transitions`
 
 ## Known Issues
 
