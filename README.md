@@ -36,6 +36,6 @@ Skills built using the Visual Flow Designer do not use YAML code and as such do 
 
 ### 1.0.0
 
-Initial release of extension.
+Initial release of extension
 
 **Enjoy!**
