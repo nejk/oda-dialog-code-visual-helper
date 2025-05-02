@@ -1,6 +1,7 @@
 {
   "name": "oda-dialog-code-visual-helper",
   "displayName": "ODA Dialog Code Visual Helper",
+  "publisher": "NiekKabel",
   "description": "Displays actionable links above transitions to quickly follow states and a breadcrumb in the status bar to backtrack states. Highlights TODOs and FIXMEs.",
   "version": "0.0.1",
   "engines": {
