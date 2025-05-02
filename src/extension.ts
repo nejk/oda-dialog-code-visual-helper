@@ -128,10 +128,48 @@ export function activate(context: vscode.ExtensionContext) {
 	let transitionStack: string[] = [];
 	let currentEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
 
-	const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
+	const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
 	statusBar.tooltip = "State transition history";
 	statusBar.show();
 	context.subscriptions.push(statusBar);
+
+	const goToStartButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
+	goToStartButton.text = '$(arrow-up) Go to Start';
+	goToStartButton.tooltip = 'Jump to first state with component: "System.Intent"';
+	goToStartButton.command = 'oda-dialog-code-visual-helper.goToStartState';
+	goToStartButton.show();
+	context.subscriptions.push(goToStartButton);
+
+	context.subscriptions.push(
+		vscode.commands.registerCommand('oda-dialog-code-visual-helper.goToStartState', async () => {
+			const editor = vscode.window.activeTextEditor;
+			if (!editor) return;
+	
+			const text = editor.document.getText();
+			const lines = text.split('\n');
+	
+			let targetLine: number | undefined = undefined;
+			let currentState: string | undefined = undefined;
+	
+			for (let i = 0; i < lines.length; i++) {
+				const stateMatch = provider.stateNameRegex.exec(lines[i]);
+				if (stateMatch) {
+					currentState = stateMatch[1];
+				}
+				if (lines[i].includes('component: "System.Intent"') && currentState !== undefined) {
+					break;
+				}
+			}
+	
+			if (currentState !== undefined) {	
+				transitionStack = [currentState!];
+				updateStatusBar();
+				await vscode.commands.executeCommand('oda-dialog-code-visual-helper.transitionToState', currentState);
+			} else {
+				vscode.window.showWarningMessage('No state with component: "System.Intent" found.');
+			}
+		})
+	);
 
 	function updateStatusBar() {
 		if (transitionStack.length === 0) {
@@ -218,6 +256,18 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		})
 	);
+
+	function tryAutoJumpToStart(editor: vscode.TextEditor | undefined) {
+		if (!editor || editor.document.languageId !== 'yaml') return;
+		vscode.commands.executeCommand('oda-dialog-code-visual-helper.transitionToState', null);
+	}
+	
+	vscode.window.onDidChangeActiveTextEditor((editor) => {
+		tryAutoJumpToStart(editor);
+	}, null, context.subscriptions);
+	
+	// In case a YAML file is already open on activation
+	tryAutoJumpToStart(vscode.window.activeTextEditor);
 
 	console.log("Extension is running");
 }

@@ -20,6 +20,10 @@
       {
         "command": "oda-dialog-code-visual-helper.popState",
         "title": "Backtrack transition"
+      },
+      {
+        "command": "oda-dialog-code-visual-helper.goToStartState",
+        "title": "Go to Intent State"
       }
     ],
     "codeLensProvider": [
