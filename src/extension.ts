@@ -53,7 +53,7 @@ function updateTodoFixmeHighlights(editor: vscode.TextEditor) {
 export class ODAConversationYAMLCodeLensProvider implements vscode.CodeLensProvider {
 	private statePosition: Record<string, number> = {};
 	public stateNameRegex = /^  (\w+):\s*$/;
-	public transitionRegex = /^(?: {6}| {8})(\w+):\s*["']?(\w+)["']?/;
+	public transitionRegex = /^(?: {6}| {8})([\w. ]+):\s*["']?(\w+)["']?/;
 
 	onDidChangeCodeLenses?: vscode.Event<void>;
 
