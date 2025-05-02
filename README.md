@@ -18,6 +18,8 @@ Tracing these transitions manually can become tedious — especially in large fi
 
 ![Highlighting](images/highlighting.png)
 
+- Displays a Go to start button in the status bar to go to the first state with the "System.Intent" component. Handy as starting point to transition into different flows.
+
 
 ## Getting Started
 
@@ -25,7 +27,7 @@ You can find the YAML code in the skill conversation designer/dialog code.
 You can edit that code inline in the ODA platform, but it is very slow (it is saved to the cloud after every change) and error phrone (there is no source control).
 Therefore it is considered best practise to edit the code in a code editor like VSCode.
 Install the extension.
-Run command (cntrl + shift + p) `Follow transitions`
+Run command (cntrl + shift + p) `Trace transition`, `Backtrack transition` or `Go to Intent State`.
 
 ## Known Issues
 
