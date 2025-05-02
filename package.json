@@ -15,11 +15,11 @@
     "commands": [
       {
         "command": "oda-dialog-code-visual-helper.transitionToState",
-        "title": "Follow transition"
+        "title": "Trace transition"
       },
       {
         "command": "oda-dialog-code-visual-helper.popState",
-        "title": "Back transition"
+        "title": "Backtrack transition"
       }
     ],
     "codeLensProvider": [
